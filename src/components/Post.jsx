@@ -36,7 +36,7 @@ function Post(props){
           display: flex;
           justify-content: space-around;
           height: 200px;
-          max-height: 10vh;
+          max-height: 15vh;
         }
         p, h3 {
           margin: 0;
@@ -87,7 +87,7 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   dispatch: PropTypes.func,
-  timeOpen: PropTypes.string,
+  timeOpen: PropTypes.object,
   karma: PropTypes.number.isRequired,
   postId: PropTypes.string.isRequired,
   formattedPostTime: PropTypes.string.isRequired

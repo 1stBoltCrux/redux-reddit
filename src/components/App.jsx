@@ -52,8 +52,22 @@ App.propTypes = {
 };
 
 const mapStateToProps = state => {
+  let postsArray = Object.keys(state).map(key => {
+    return state[key];
+  });
+
+  postsArray.sort(function(a,b) {
+    return (a.karma < b.karma) ? 1 : ((b.karma < a.karma) ? -1 : 0);}
+  );
+
+  const arrayToObject = (array) => array.reduce((obj, item) => {
+    obj[item.id] = item;
+    return obj;
+  }, {});
+  const newMasterPostList = arrayToObject(postsArray);
+
   return {
-    masterPostList: state
+    masterPostList: newMasterPostList
   };
 };
 export default withRouter(connect(mapStateToProps)(App));
