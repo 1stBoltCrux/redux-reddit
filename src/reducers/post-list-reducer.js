@@ -1,6 +1,6 @@
 export default (state = {}, action) => {
   let newState;
-  const { title, content, karma, timeOpen, id } = action;
+  const { title, content, karma, timeOpen, id, formattedPostTime } = action;
 
   switch (action.type) {
   case 'ADD_POST':
@@ -10,7 +10,8 @@ export default (state = {}, action) => {
         content: content,
         karma: karma,
         timeOpen: timeOpen,
-        id: id
+        id: id,
+        formattedPostTime: formattedPostTime
       }
     });
     return newState;
@@ -29,6 +30,14 @@ export default (state = {}, action) => {
     newObject.karma --;
     let newState = Object.assign({}, state, {
       [action.postId]: newObject
+    });
+    return newState;
+  }
+
+  case 'UPDATE_TIME': {
+    const newPost = Object.assign({}, state[id], {formattedPostTime});
+    newState = Object.assign({}, state, {
+      [id]: newPost
     });
     return newState;
   }

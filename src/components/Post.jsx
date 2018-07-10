@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 function Post(props){
-  console.log(props.timeOpen);
 
   function handleUpVote(){
     const {dispatch} = props;
@@ -78,7 +77,7 @@ function Post(props){
         <br/>
         <p>{props.content}</p>
         <br/>
-        <p>{props.timeOpen}</p>
+        <p>{props.formattedPostTime} ago</p>
       </div>
     </div>
   );
@@ -90,7 +89,8 @@ Post.propTypes = {
   dispatch: PropTypes.func,
   timeOpen: PropTypes.string,
   karma: PropTypes.number.isRequired,
-  postId: PropTypes.string.isRequired
+  postId: PropTypes.string.isRequired,
+  formattedPostTime: PropTypes.string.isRequired
 };
 
 export default connect()(Post);

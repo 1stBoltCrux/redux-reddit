@@ -12,6 +12,7 @@ function PostList(props){
           content={post.content}
           karma={post.karma}
           timeOpen={post.timeOpen}
+          formattedPostTime={post.formattedPostTime}
           key={postId}
           postId={postId} />;
       })}
