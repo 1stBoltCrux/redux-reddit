@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 function Post(props){
+  console.log(props.timeOpen);
 
   function handleUpVote(){
     const {dispatch} = props;
@@ -38,7 +39,9 @@ function Post(props){
           height: 200px;
           max-height: 10vh;
         }
-
+        p, h3 {
+          margin: 0;
+        }
         .karma {
           width: 10%;
           padding: 20px;
@@ -47,7 +50,6 @@ function Post(props){
 
         .titleContent {
           width: 100%;
-          padding: 20px;
           display: flex;
           flex-direction: column;
           justify-content: center;

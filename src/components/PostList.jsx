@@ -11,6 +11,7 @@ function PostList(props){
           title={post.title}
           content={post.content}
           karma={post.karma}
+          timeOpen={post.timeOpen}
           key={postId}
           postId={postId} />;
       })}
