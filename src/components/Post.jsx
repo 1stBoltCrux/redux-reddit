@@ -75,6 +75,8 @@ function Post(props){
         <h3>{props.title}</h3>
         <br/>
         <p>{props.content}</p>
+        <br/>
+        <p>{props.timeOpen}</p>
       </div>
     </div>
   );

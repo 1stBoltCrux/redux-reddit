@@ -8,9 +8,9 @@ import postListReducer from './reducers/post-list-reducer';
 
 const store = createStore(postListReducer);
 
-// let unsubscribe = store.subscribe(() =>
-//   console.log(store.getState())
-// );
+let unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+);
 
 const render = (Component) => {
   ReactDOM.render(

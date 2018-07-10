@@ -17,7 +17,7 @@ function NewPostForm(props){
       title: title.value,
       content: content.value,
       karma: 1,
-      timeOpen: new Moment()
+      timeOpen: new Moment().fromNow()
     };
     dispatch(action);
     _title.value = '';

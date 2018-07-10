@@ -16,30 +16,19 @@ export default (state = {}, action) => {
     return newState;
 
   case 'UPVOTE': {
-    let newKarma = action.karma + 1;
-
-    newState = Object.assign({}, state, {
-      [action.postId] : {
-        title: action.title,
-        content: action.content,
-        karma: newKarma,
-        id: action.postId,
-        timeOpen: action.timeOpen
-      }
+    let newObject= Object.assign({}, state[action.postId]);
+    newObject.karma ++;
+    let newState = Object.assign({}, state, {
+      [action.postId]: newObject
     });
     return newState;
   }
 
   case 'DOWNVOTE': {
-    let lessKarma = action.karma - 1;
-    newState = Object.assign({}, state, {
-      [action.postId] : {
-        title: action.title,
-        content: action.content,
-        karma: lessKarma,
-        id: action.postId,
-        timeOpen: action.timeOpen
-      }
+    let newObject= Object.assign({}, state[action.postId]);
+    newObject.karma --;
+    let newState = Object.assign({}, state, {
+      [action.postId]: newObject
     });
     return newState;
   }
